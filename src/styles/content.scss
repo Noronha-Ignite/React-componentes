@@ -1,6 +1,8 @@
 .container {
   max-width: 52.5rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   margin: 0 auto;
 }
@@ -22,10 +24,13 @@ header {
 
 main {
   width: 100%;
+  display: flex;
   margin-top: 5.625rem;
+  flex: 1;
 
   .movies-list {
     display: grid;
+    flex: 1;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 4.75rem;
     list-style: none;

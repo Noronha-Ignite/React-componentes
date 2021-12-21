@@ -2,6 +2,7 @@ import { GenreResponseProps } from "../App";
 import { Button } from "./Button";
 
 import '../styles/sidebar.scss';
+import { useCallback } from "react";
 interface SideBarProps {
   genres: GenreResponseProps[];
   handleSelectGenre: (id: number) => void;
@@ -9,7 +10,6 @@ interface SideBarProps {
 }
 
 export function SideBar({ genres, handleSelectGenre, selectedGenreId }: SideBarProps) {
-
   return (
     <nav className="sidebar">
       <span>Watch<p>Me</p></span>
@@ -18,9 +18,8 @@ export function SideBar({ genres, handleSelectGenre, selectedGenreId }: SideBarP
         {genres.map(genre => (
           <Button
             key={String(genre.id)}
-            title={genre.title}
-            iconName={genre.name}
-            onClick={() => handleSelectGenre(genre.id)}
+            genre={genre}
+            handleSelectGenre={handleSelectGenre}
             selected={selectedGenreId === genre.id}
           />
         ))}

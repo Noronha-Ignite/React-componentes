@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { api } from './services/api';
 
@@ -47,9 +47,9 @@ export function App() {
     });
   }, [selectedGenreId]);
 
-  function handleSelectGenre(id: number) {
+  const handleSelectGenre = useCallback((id: number) => {
     setSelectedGenreId(id);
-  }
+  }, [setSelectedGenreId]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
